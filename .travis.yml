@@ -18,3 +18,18 @@ after_success:
   - docker push nurlatif97/multi-nginx
   - docker push nurlatif97/multi-server
   - docker push nurlatif97/multi-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-440303492310
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $ACCESS_ID
+  secret_access_key: $ACCESS_KEY
+    
+  
